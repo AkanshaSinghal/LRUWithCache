@@ -7,7 +7,7 @@ public class LRUCache {
 	int limit;
 	int currLimit = 0;
 
-	private HashMap<Integer, DoubleLl> map = new <Integer, DoubleLl>HashMap();
+	private HashMap<Integer, Node> map = new <Integer, DoubleLl>HashMap();
 
 	public void insert(int data) {
 
@@ -24,7 +24,7 @@ public class LRUCache {
 
 			currLimit--;
 		}
-		DoubleLl dataNode = insertIntoDoubleLl(data);
+		Node dataNode = insertIntoDoubleLl(data);
 		currLimit++;
 
 		map.put(data, dataNode);
@@ -32,15 +32,15 @@ public class LRUCache {
 	}
 
 	public void printCache() {
-		DoubleLl node = DoubleLl.start;
+		Node node = DoubleLl.start;
 		while (node != null) {
 			System.out.println(node.data);
 			node = node.next;
 		}
 	}
 
-	private DoubleLl insertIntoDoubleLl(int data) {
-		DoubleLl d = new DoubleLl(data);
+	private Node insertIntoDoubleLl(int data) {
+		Node d = new Node(data);
 		return d;
 
 	}
