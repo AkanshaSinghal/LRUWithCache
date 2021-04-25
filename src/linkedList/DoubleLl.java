@@ -3,37 +3,33 @@ package linkedList;
 
 public class DoubleLl {
 
-	int data;
-	DoubleLl next;
-	DoubleLl prev;
 
-	static DoubleLl start;
-	static DoubleLl end;
+	static Node start;
+	static Node end;
 
-	public DoubleLl(int data2) {
-		this.data = data2;
-		this.next = null;
+	public DoubleLl(Node n) {
+		
 		if (start == null) {
 
-			this.prev = null;
-			start = this;
-			end = this;
+			n.prev = null;
+			start = n;
+			end = n;
 		} else {
-			this.prev = end;
-			end.next = this;
-			end = this;
+			n.prev = end;
+			end.next = n;
+			end = n;
 
 		}
 
 	}
 
 	public static void removeLRU() {
-		DoubleLl temp = start.next;
+		Node temp = start.next;
 		start = temp;
 
 	}
 
-	public static void removeNode(DoubleLl node) {
+	public static void removeNode(Node node) {
 
 		// start
 		if (node.prev == null && node.next != null) {
